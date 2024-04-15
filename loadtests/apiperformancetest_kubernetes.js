@@ -13,13 +13,7 @@ export let options = {
         { duration: '1m', target: 400 },
         { duration: '1m', target: 800 },
         { duration: '1m', target: 1600 },
-        { duration: '1m', target: 3200 },
-        { duration: '1m', target: 6400 },
-        { duration: '1m', target: 10240 },
         // Fase di ramp-down
-        { duration: '1m', target: 10240 },
-        { duration: '1m', target: 6400 },
-        { duration: '1m', target: 3200 },
         { duration: '1m', target: 1600 },
         { duration: '1m', target: 800 },
         { duration: '1m', target: 400 },
@@ -38,6 +32,6 @@ export default function () {
         check(res, {
             'is status 200': (r) => r.status === 200,
         }) && successfulRequests.add(1);
-        sleep(1 / Math.floor(Math.random() * 5) + 1);
+        sleep(1 / Math.floor(Math.random() * 30) + 1);
     }
 }
