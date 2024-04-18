@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gttestapi
+  namespace: demo
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: gttestapi
+  template:
+    metadata:
+      labels:
+        app: gttestapi
+    spec:
+      containers:
+        - name: gttestapi
+          image: docker.io/library/gttestapi:latest
+          imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "64Mi"
+            limits:
+              cpu: "500m"
+              memory: "128Mi"
+          ports:
+          - containerPort: 8080
+            name: web
+            protocol: TCP
+          env:
+            - name: API_Paradise
+              value: green
