@@ -28,7 +28,7 @@ export let options = {
 
 export default function () {
     for (let i = 0; i < Math.floor(Math.random() * 30) + 1; i++) {
-        let res = http.get('http://gtkubemaster:30002/api/weatherforecast');
+        let res = http.get('http://gtkubemaster:30003/weatherforecast');
         check(res, {
             'is status 200': (r) => r.status === 200,
         }) && successfulRequests.add(1);
